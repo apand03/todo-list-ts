@@ -1,0 +1,26 @@
+@import "../../index.css";
+.header {
+  --bg-full: #fff3d6f3;
+  background-color: var(--bg-full);
+  z-index: 1;
+}
+
+.header__container {
+  height: 4rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__container .header__title {
+  font-size: 2.4rem;
+}
+
+.header__total-todos {
+  font-size: 2rem;
+}
+
+.header__total-todos span {
+  font-weight: 800;
+}

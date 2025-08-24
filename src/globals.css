@@ -1,0 +1,74 @@
+@import "./index.css";
+
+#root {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--bg-full);
+  /* z-index: 2; */
+}
+
+.container {
+  min-width: min(80rem, 100%);
+  margin: 0 auto;
+  height: calc(80vh - 4rem);
+  background-color: #fff;
+  box-shadow: var(--bx-shadow);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.main__container {
+  /* padding: 0 1rem; */
+  height: calc(calc(80vh - 4rem) - 4rem);
+}
+
+/* 
+.bg-text-overlay {
+  position: absolute;
+  z-index: 1;
+  top: -5rem;
+  left: 35%;
+  font-size: 5rem;
+} */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 28rem;
+  /* padding: 0 1rem; */
+  height: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 28rem 1fr;
+  }
+
+  .sidebar {
+    grid-row: 1/2;
+  }
+
+  .section-todo {
+    grid-row: 2/3;
+  }
+}
+
+.btn {
+  --clr-btn: #493020;
+  background: var(--clr-btn);
+  color: #fff;
+  padding: 0.85rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-sidebar {
+  --clr-btn: #6c584c;
+  background: var(--clr-btn);
+}
