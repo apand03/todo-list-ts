@@ -1,5 +1,5 @@
 import type { SetStateAction } from "react";
-import { FaTimes } from "react-icons/fa";
+import Todo from "./Todo";
 
 type Todo = {
   id: number;
@@ -14,7 +14,7 @@ const TodoList = ({
   todos: Todo[];
   setTodos: React.Dispatch<SetStateAction<Todo[]>>;
 }) => {
-  const onDeleteHandler = (id: number) => {
+  const onDeleteHandler = (id: number | undefined): void => {
     const todosNew = todos.filter((todo) => todo.id !== id);
     setTodos(todosNew);
   };
@@ -26,15 +26,11 @@ const TodoList = ({
           {todos.length > 0
             ? todos.map((todo: Todo) => {
                 return (
-                  <li className="todo-list__items" key={todo.id}>
-                    <span className="todo-text">{todo.todoName}</span>
-                    <button
-                      className="btn-close"
-                      onClick={() => onDeleteHandler(todo.id)}
-                    >
-                      <FaTimes className="btn-close__icon" />
-                    </button>
-                  </li>
+                  <Todo
+                    todo={todo}
+                    key={todo.id}
+                    onDeleteHandler={onDeleteHandler}
+                  />
                 );
               })
             : "There are no todos added"}

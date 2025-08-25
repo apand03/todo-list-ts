@@ -17,12 +17,13 @@ const Form = ({
   setTodos: React.Dispatch<SetStateAction<Todo[]>>;
 }) => {
   const [inputValue, setInputValue] = useState<string>("");
-  const [indexCount, setIndexCount] = useState<number>(1);
+  const [indexCount, setIndexCount] = useState<number>(0);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIndexCount((count) => count + 1);
     if (inputValue.trim() !== "") {
+      // Only run this when there the above if statement is satisfied
+      setIndexCount((count) => count + 1);
       setTodos((prev) => [
         ...prev,
         {
